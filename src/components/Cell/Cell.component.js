@@ -4,21 +4,10 @@ import './Cell.css'
 class Cell extends Component {
     constructor(props){
         super(props);
-        this.handleCellClick = this.handleCellClick.bind(this);
+        // this.handleCellClick = this.handleCellClick.bind(this);
         this.state={
             value: -1,
         };
-    }
-
-    // emptyCellAdjacent(emptyCellX,emptyCellY){
-
-    // }
-
-    handleCellClick(){
-        console.log(this.props.adjacent);
-        // if(emptyCellAdjacent){
-
-        // }
     }
 
     componentDidMount(){
@@ -36,7 +25,7 @@ class Cell extends Component {
             )
         }else {
         return(
-            <div className="grid-item" onClick={this.handleCellClick}>
+            <div className="grid-item" onClick={() => this.props.handleCellClick(this.props.adjacent, this.props.number, this.props.position)}>
                 <span>{number}</span>
             </div>
         )}
